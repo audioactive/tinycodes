@@ -60,10 +60,10 @@ const List = ({ filter }: { filter?: string }) => {
   const menuItems = (
     <>
       <DropdownItem onClick={() => handleSetSortBy('title')}>
-        按标题
+        By Title
       </DropdownItem>
       <DropdownItem onClick={() => handleSetSortBy('time')}>
-        按时间
+        By time
       </DropdownItem>
     </>
   );
