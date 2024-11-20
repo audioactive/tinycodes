@@ -10,9 +10,7 @@ const Empty = () => {
 
   useEffect(() => {
     const tips = [
-      'Ctrl + Shift + V 可以呼出快捷窗口',
-      '有问题发送到github.com/y-not-u/tinycodes',
-      '我能吞下玻璃而不伤身体',
+      'Ctrl + Shift + V Can exhale shortcut window',
       'Talk is cheap. Show me the code.',
     ];
     const changeTip = () => {
@@ -29,8 +27,8 @@ const Empty = () => {
     <div className="empty">
       <div className="tip">
         <img src={CodeIcon} alt="" />
-        <p>所有片段</p>
-        <small>一共有{store?.snippetsStore.snippets.length}条</small>
+        <p>All fragments</p>
+        <small>A total of{store?.snippetsStore.snippets.length}Article</small>
         <p className="other">{other}</p>
       </div>
     </div>
