@@ -24,7 +24,7 @@ const Toolbar = () => {
     <div className="toolbar">
       <button className="new-button" type="button" onClick={handleNewSnippet}>
         <AiOutlinePlus size="1.1rem" />
-        添加新片段
+        Add new snippet
       </button>
       {window.electron.process.platform === 'linux' ? null : (
         <div className="window-control">
