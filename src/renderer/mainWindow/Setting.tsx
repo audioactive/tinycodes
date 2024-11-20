@@ -130,9 +130,9 @@ const Setting = () => {
 
   const handleExport = () => {
     window.electron.file.save(
-      '保存数据',
+      'Save Data',
       'tinycodes.json',
-      '导出',
+      'Export',
       JSON.stringify(store?.snippetsStore.snippets || {})
     );
   };
@@ -161,7 +161,7 @@ const Setting = () => {
       return;
     }
     await webdav.sync();
-    notifySuccess('同步成功');
+    notifySuccess('sucess');
     await store?.snippetsStore.sync();
     setWebDavLoading(false);
   };
@@ -172,7 +172,7 @@ const Setting = () => {
 
   const handleCheckUpdate = () => {
     window.electron.system.checkUpdate().catch(() => {
-      notifyWarning('发送失败，轻检查网络');
+      notifyWarning('Sending failed，Check network');
     });
   };
 
@@ -202,7 +202,7 @@ const Setting = () => {
   return (
     <div className="setting">
       <div className="setting-title">
-        <h2>偏好设置</h2>
+        <h2>Preferences</h2>
         <AiOutlineCloseCircle
           className="close-btn"
           size={22}
@@ -210,27 +210,27 @@ const Setting = () => {
         />
       </div>
       <section>
-        <p className="title">外观</p>
+        <p className="title">Appearance</p>
         <div className="setting-item">
-          <span>主题</span>
+          <span>Topics</span>
           <select
             value={store?.appStore.theme}
             onChange={(e) => handleSetTheme(e.target.value)}
           >
-            <option value="system">跟随系统</option>
-            <option value="light">轻白模式</option>
-            <option value="dark">暗黑模式</option>
+            <option value="system">system</option>
+            <option value="light">light</option>
+            <option value="dark">dark</option>
           </select>
         </div>
       </section>
       <section>
-        <p className="title">快捷键</p>
+        <p className="title">Shortcuts</p>
         <div className="setting-item">
-          <span>显示快捷窗口</span>
+          <span>Show shortcut window</span>
           <input
             className="shortcut-input"
             type="text"
-            placeholder="设置快捷键"
+            placeholder="Setting shortcuts"
             ref={quickWindowShortcutRef}
             value={shortcut}
             onChange={() => {}}
@@ -238,9 +238,9 @@ const Setting = () => {
         </div>
       </section>
       <section>
-        <p className="title">编辑器</p>
+        <p className="title">Editor</p>
         <div className="setting-item">
-          <span>默认语言</span>
+          <span>Default Language</span>
           <select
             value={defaultLang}
             onChange={(e) => handleSetDefaultLang(e.target.value)}
@@ -253,22 +253,22 @@ const Setting = () => {
           </select>
         </div>
         <div className="setting-item">
-          <span>默认模式</span>
+          <span>Default Mode</span>
           <select
             value={editorDefaultMode}
             onChange={(e) => handleSetEditorDefaultMode(e.target.value)}
           >
-            <option value="readonly">只读</option>
-            <option value="editable">可编辑</option>
+            <option value="readonly">Read-only</option>
+            <option value="editable">Editable</option>
           </select>
         </div>
       </section>
       <section>
-        <p className="title">数据</p>
+        <p className="title">Data</p>
         <div className="setting-item">
-          <span>数据文件</span>
+          <span>Data files</span>
           <button type="button" onClick={handleExport}>
-            导出
+            exporting
           </button>
         </div>
         <div className="setting-item">
@@ -283,24 +283,24 @@ const Setting = () => {
               同步
             </button>
             <button type="button" onClick={handleOpenConfigWebDav}>
-              设置
+              Settings
             </button>
           </div>
         </div>
       </section>
       <section>
-        <p className="title">版本</p>
+        <p className="title">Version</p>
         <div className="setting-item">
           <span>v{version}</span>
           <button type="button" onClick={handleCheckUpdate}>
-            检查更新
+            Check for updates
           </button>
         </div>
       </section>
       <section>
-        <p className="title">关于</p>
+        <p className="title">about</p>
         <div className="setting-item">
-          <span>源码</span>
+          <span>Source Code</span>
           <a className="external" href="https://github.com/y-not-u/tinycodes">
             github.com/y-not-u/tinycodes
           </a>
@@ -309,17 +309,17 @@ const Setting = () => {
       <Modal
         isOpen={Boolean(newVersion)}
         onClose={() => setNewVersion(null)}
-        okLabel="前往下载"
+        okLabel="Go to Download"
         onConfirm={handleOpenSite}
         width="50%"
       >
-        <h2>发现新版本</h2>
+        <h2>new version</h2>
         {newVersion?.releaseDate ? (
           <small>{dayjs(newVersion.releaseDate).format('YYYY-MM-DD')}</small>
         ) : null}
         <br />
         <br />
-        <p>{newVersion?.version} 已经发布</p>
+        <p>{newVersion?.version} New version found</p>
       </Modal>
       <Modal
         isOpen={webDavDialog}
