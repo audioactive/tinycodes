@@ -52,7 +52,7 @@ const Editor = (props: IProps) => {
     let toastMsg = '';
     const newContent = editorRef.current?.getValue() || '';
     if (!title.trim()) {
-      toast.error('请输入片段标题', {
+      toast.error('Please enter a snippet title', {
         position: toast.POSITION.BOTTOM_CENTER,
       });
       return false;
@@ -67,7 +67,7 @@ const Editor = (props: IProps) => {
       if (saved) {
         appStore?.setSelectedSnippetId(saved.id);
       }
-      toastMsg = '添加成功';
+      toastMsg = 'Add Success';
     } else if (mode === 'edit') {
       if (!selectedSnippetId) {
         return false;
@@ -78,7 +78,7 @@ const Editor = (props: IProps) => {
         content: newContent,
         lang,
       });
-      toastMsg = '修改成功';
+      toastMsg = 'The modification was successful';
     }
     toast.success(toastMsg, {
       position: toast.POSITION.BOTTOM_CENTER,
@@ -157,10 +157,10 @@ const Editor = (props: IProps) => {
       <div className="bottom-toolbox">
         <div className="buttons">
           <button type="button" className="save" onClick={handleSaveAndQuit}>
-            保存
+            Save
           </button>
           <button type="button" className="cancel" onClick={handleCancel}>
-            取消
+            Cancel
           </button>
         </div>
         <select
