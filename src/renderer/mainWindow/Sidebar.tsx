@@ -67,16 +67,16 @@ const Sidebar = () => {
       <SimpleBar className="modules">
         <NavLink to="all" className="section-item" activeClassName="actived">
           <img className="icon" src={AllImage} alt="" />
-          <span className="title">所有片段</span>
+          <span className="title">all snippets</span>
         </NavLink>
         <NavLink to="star" className="section-item" activeClassName="actived">
           <img className="icon" src={StarImage} alt="" />
-          <span className="title">收藏</span>
+          <span className="title">fav snippets</span>
         </NavLink>
         {/*
       <p className="section-item">
         <img className="icon" src={TrashImage} alt="" />
-        <span className="title">回收站</span>
+        <span className="title">recycle bin</span>
       </p>
       <br />
       <br />
@@ -91,7 +91,7 @@ const Sidebar = () => {
           onKeyPress={() => {}}
         >
           <img className="icon" src={LabelImage} alt="" />
-          <span className="title">标签</span>
+          <span className="title">tag</span>
           <div className="right-icon">
             {showLabels ? (
               <BsChevronDown color="gray" size={11} />
@@ -106,7 +106,7 @@ const Sidebar = () => {
               areaRef={labelsRef}
               overlay={[
                 // { label: '重命名', onClick: handleRemoveLabel },
-                { label: '删除', onClick: showRemoveLabelModal },
+                { label: 'delete', onClick: showRemoveLabelModal },
               ]}
             >
               <>
@@ -136,9 +136,9 @@ const Sidebar = () => {
         onConfirm={handleRemoveLabel}
         onClose={() => setRemoveLabelModal(false)}
       >
-        <h2>删除标签</h2>
+        <h2>Delete Tag</h2>
         <br />
-        <p>删除后，标签将会完全移除。</p>
+        <p>After deletion, the tag will be completely removed.</p>
       </Modal>
     </div>
   );
